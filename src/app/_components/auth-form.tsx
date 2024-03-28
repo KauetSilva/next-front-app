@@ -14,10 +14,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 export function AuthForm() {
   const [error, setError] = useState(null);
   const form = useForm();
+  const router = useRouter();
 
   const handleSubmit = async (data: any) => {
     console.log('data', data)
@@ -31,9 +35,22 @@ export function AuthForm() {
       });
 
       if (response.ok) {
-      } else {
         const responseData = await response.json();
-        setError(responseData.message);
+        const token = responseData.token;
+        toast({
+          variant: "success",
+          title: "Success",
+          description: "Login with success",
+        });
+        Cookies.set("token", token, { expires: 1 });
+        router.push("/dashboard");
+      } else {
+        
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Login failed",
+        });
       }
     } catch (error) {
       console.error('Error:', error);
