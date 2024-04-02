@@ -24,7 +24,6 @@ export function AuthForm() {
   const router = useRouter();
 
   const handleSubmit = async (data: any) => {
-    console.log('data', data)
     loginSchema.parse(data);
     try {
       const response = await fetch('http://localhost:8000/user/login', {
@@ -111,7 +110,6 @@ export function AuthForm() {
                     />
                   </div>
                 </CardContent>
-                {/* {error && <p className="text-red-500 ml-6">{error}</p>} */}
                 <CardFooter className="flex flex-col gap-2">
                   <Button
                     type="submit"
