@@ -24,7 +24,6 @@ export function AuthForm() {
   const router = useRouter();
 
   const handleSubmit = async (data: any) => {
-    console.log('data', data)
     loginSchema.parse(data);
     try {
       const response = await fetch('http://localhost:8000/user/login', {

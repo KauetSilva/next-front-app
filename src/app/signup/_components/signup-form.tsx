@@ -28,16 +28,10 @@ const signupSchema = object({
 });
 
 export default function SignupForm() {
-  const [error, setError] = useState(null);
   const router = useRouter();
   const form = useForm();
 
   const handleSubmit = async (data: any) => {
-    // event.preventDefault();
-
-    console.log('dataaa', data)
-    // const formData = new FormData(data);
-
     try {
       const response = await fetch("http://localhost:8000/user", {
         method: "POST",
