@@ -6,13 +6,13 @@ export async function middleware(request: NextRequest) {
   const token = request.cookies.get("token");
   const pathname = request.nextUrl.pathname;
 
-  if (pathname === "/" && token) {
+  if ((pathname === "/" && token) || (pathname === "/login" && token)) {
     return NextResponse.redirect(new URL(getUrl("/dashboard")));
   }
 
   if (pathname.includes("/dashboard")) {
     if (!token) {
-      return NextResponse.redirect(new URL(getUrl("/")));
+      return NextResponse.redirect(new URL(getUrl("/login")));
     }
     try {
       const secretJwt = process.env.NEXT_PUBLIC_JWT_SECRET as string;
