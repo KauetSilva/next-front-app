@@ -111,7 +111,6 @@ export function AuthForm() {
                     />
                   </div>
                 </CardContent>
-                {/* {error && <p className="text-red-500 ml-6">{error}</p>} */}
                 <CardFooter className="flex flex-col gap-2">
                   <Button
                     type="submit"
