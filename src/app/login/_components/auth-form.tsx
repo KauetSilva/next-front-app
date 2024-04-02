@@ -64,18 +64,27 @@ export function AuthForm() {
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
         <div className="w-1/2 h-screen bg-[#F6F7EB] text-[#2C2A4A] flex items-center justify-center">
-          <Image src="/caixa2.png" alt="Image" width={300} height={300} className="max-w-full max-h-full" />
+          <Image
+            src="/caixa2.png"
+            alt="Image"
+            width={300}
+            height={300}
+            className="max-w-full max-h-full"
+          />
         </div>
         <div className="w-1/2 flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] rounded-l-2xl">
           <div className="w-full max-w-sm">
             <div>
               <form onSubmit={form.handleSubmit(handleSubmit)}>
                 <CardHeader className="text-center space-y-2">
-                  <Image src="/logo-branca.png" alt="Image" width={200} height={200} className="max-w-full max-h-full ml-[4.5rem] mb-10" />
+                  <Image
+                    src="/logo-branca.png"
+                    alt="Image"
+                    width={200}
+                    height={200}
+                    className="max-w-full max-h-full ml-[4.8rem] mb-10"
+                  />
                   <CardTitle className="text-2xl font-bold">Login</CardTitle>
-                  <CardDescription>
-                    Enter your email below to login to your account.
-                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
@@ -83,35 +92,44 @@ export function AuthForm() {
 
                     <Input
                       id="email"
-                      placeholder="m@example.com"
+                      placeholder="m@exemplo.com"
                       required
                       type="email"
                       className="bg-[#252728]"
-                      {...form.register('email')}
+                      {...form.register("email")}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Senha</Label>
                     <Input
                       id="password"
-                      placeholder="Password"
+                      placeholder="Senha"
                       required
                       type="password"
                       className="bg-[#252728]"
-                      {...form.register('password')}
+                      {...form.register("password")}
                     />
                   </div>
                 </CardContent>
                 {/* {error && <p className="text-red-500 ml-6">{error}</p>} */}
                 <CardFooter className="flex flex-col gap-2">
-                  <Button type="submit" className="mt-auto w-full">
+                  <Button
+                    type="submit"
+                    className="mt-auto w-full bg-gradient-to-r from-gray-400 to-[#1f1d42] text-white border-none rounded-md py-2 px-4 transition duration-300 ease-in-out hover:bg-blue-800"
+                  >
                     Login
                   </Button>
                 </CardFooter>
                 <CardFooter className="text-center text-sm">
-                  Dont have an account? <Link href="/signup" className="ml-2 text-blue-400 hover:opacity-75">Sign up</Link>
+                  Não tem uma conta?{" "}
+                  <Link
+                    href="/signup"
+                    className="ml-2 text-blue-400 hover:opacity-75"
+                  >
+                    Sign up
+                  </Link>
                 </CardFooter>
-              <Bottom />
+                <Bottom />
               </form>
             </div>
           </div>
