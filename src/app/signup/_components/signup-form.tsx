@@ -18,7 +18,6 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { object, string } from "zod";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const signupSchema = object({
