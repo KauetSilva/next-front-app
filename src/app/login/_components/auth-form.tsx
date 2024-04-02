@@ -45,7 +45,6 @@ export function AuthForm() {
         Cookies.set("token", token, { expires: 1 });
         router.push("/dashboard");
       } else {
-        console.log('oii')
         toast({
           variant: "destructive",
           title: "Error",

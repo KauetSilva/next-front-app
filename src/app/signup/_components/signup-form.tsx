@@ -16,9 +16,8 @@ import Bottom from "./bottom";
 import { toast } from "@/components/ui/use-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-import { object, string } from 'zod';
+import { object, string } from "zod";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const signupSchema = object({
@@ -32,6 +31,7 @@ export default function SignupForm() {
   const form = useForm();
 
   const handleSubmit = async (data: any) => {
+    signupSchema.parse(data);
     try {
       const response = await fetch("http://localhost:8000/user", {
         method: "POST",
@@ -58,7 +58,6 @@ export default function SignupForm() {
           description: "Register failed invalid credentials",
         });
         const responseData = await response.json();
-        setError(responseData.message);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -68,7 +67,7 @@ export default function SignupForm() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
-      <div className="w-1/2 flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] rounded-r-2xl">
+        <div className="w-1/2 flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] rounded-r-2xl">
           <div className="w-full max-w-sm">
             <div>
               <form onSubmit={form.handleSubmit(handleSubmit)}>
@@ -80,7 +79,9 @@ export default function SignupForm() {
                     height={200}
                     className="max-w-full max-h-full ml-[4.8rem] mb-10"
                   />
-                  <CardTitle className="text-2xl font-bold">Cadastre-se</CardTitle>
+                  <CardTitle className="text-2xl font-bold">
+                    Cadastre-se
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2 mt-6">
