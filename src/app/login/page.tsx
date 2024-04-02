@@ -1,10 +1,10 @@
 import { AuthForm } from "./_components/auth-form";
 
-
-export default function Home() {
+export default async function Login() {
   return (
-    <main className="flex items-center justify-center h-screen">
+    <main>
       <AuthForm />
+      
     </main>
   )
 }
