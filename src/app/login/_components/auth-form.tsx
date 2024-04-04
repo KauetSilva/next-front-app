@@ -61,7 +61,7 @@ export function AuthForm() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
-        <div className="w-1/2 h-screen bg-[#F6F7EB] text-[#2C2A4A] flex items-center justify-center">
+        <div className="hidden 2xl:flex xl:flex md:flex w-full h-screen bg-[#F6F7EB] text-[#2C2A4A] items-center justify-center">
           <Image
             src="/caixa2.png"
             alt="Image"
@@ -70,7 +70,7 @@ export function AuthForm() {
             className="max-w-full max-h-full"
           />
         </div>
-        <div className="w-1/2 flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] rounded-l-2xl">
+        <div className="w-full flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] 2xl:rounded-l-2xl xl:rounded-l-2xl">
           <div className="w-full max-w-sm">
             <div>
               <form onSubmit={form.handleSubmit(handleSubmit)}>
@@ -126,7 +126,7 @@ export function AuthForm() {
                     Sign up
                   </Link>
                 </CardFooter>
-                <Bottom />
+                {/* <Bottom /> */}
               </form>
             </div>
           </div>
