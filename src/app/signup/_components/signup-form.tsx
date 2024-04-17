@@ -67,19 +67,26 @@ export default function SignupForm() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
-        <div className="w-1/2 flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] rounded-r-2xl">
+        <div className="w-full flex items-center justify-center 2xl:bg-[#2C2A4A] xl:bg-[#2C2A4A] md:bg-[#2C2A4A] bg-[#F6F7EB] 2xl:text-[#F6F7EB] xl:text-[#F6F7EB] text-[#2C2A4A] 2xl:rounded-r-2xl xl:rounded-r-2xl">
           <div className="w-full max-w-sm">
             <div>
               <form onSubmit={form.handleSubmit(handleSubmit)}>
-                <CardHeader className="text-center space-y-2">
+                <CardHeader className="text-center space-y-5">
                   <Image
                     src="/logo-branca.png"
                     alt="Image"
                     width={200}
                     height={200}
-                    className="max-w-full max-h-full ml-[4.8rem] mb-10"
+                    className="hidden 2xl:flex xl:flex md:flex max-w-full max-h-full ml-[4.8rem]"
                   />
-                  <CardTitle className="text-2xl font-bold">
+                  <Image
+                    src="/logo-azul.png"
+                    alt="Image"
+                    width={200}
+                    height={200}
+                    className="max-w-full max-h-full ml-[4.8rem] lg:hidden xl:hidden md:hidden"
+                  />
+                  <CardTitle className="text-2xl font-bold 2xl:text-[#F6F7EB] xl:text-[#F6F7EB] md:text-[#F6F7EB]">
                     Cadastre-se
                   </CardTitle>
                 </CardHeader>
@@ -89,20 +96,19 @@ export default function SignupForm() {
                     <Input
                       id="username"
                       placeholder="Username"
-                      className="bg-[#252728]"
+                      className="bg-[#FFF] text-[#131404]"
                       required
                       {...form.register("username")}
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-
                     <Input
                       id="email"
                       placeholder="m@exemplo.com"
                       required
                       type="email"
-                      className="bg-[#252728]"
+                      className="bg-[#FFF] text-[#131404]"
                       {...form.register("email")}
                     />
                   </div>
@@ -113,7 +119,7 @@ export default function SignupForm() {
                       placeholder="Senha"
                       required
                       type="password"
-                      className="bg-[#252728]"
+                      className="bg-[#FFF] text-[#131404]"
                       {...form.register("password")}
                     />
                   </div>
@@ -126,7 +132,7 @@ export default function SignupForm() {
                     Cadastrar
                   </Button>
                 </CardFooter>
-                <CardFooter className="text-center text-sm">
+                <CardFooter className="text-center text-sm 2xl:text-[#F6F7EB] xl:text-[#F6F7EB] md:text-[#F6F7EB]">
                   Já possui uma conta?{" "}
                   <Link
                     href="/login"
@@ -135,12 +141,12 @@ export default function SignupForm() {
                     Login
                   </Link>
                 </CardFooter>
-                <Bottom />
+                {/* <Bottom /> */}
               </form>
             </div>
           </div>
         </div>
-        <div className="w-1/2 h-screen bg-[#F6F7EB] text-[#2C2A4A] flex items-center justify-center">
+        <div className="hidden 2xl:flex xl:flex md:flex w-full h-screen bg-[#F6F7EB] text-[#2C2A4A] items-center justify-center">
           <Image
             src="/caixa2.png"
             alt="Image"
