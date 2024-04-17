@@ -96,20 +96,19 @@ export default function SignupForm() {
                     <Input
                       id="username"
                       placeholder="Username"
-                      className="bg-[#252728] text-[#F6F7EB]"
+                      className="bg-[#FFF] text-[#131404]"
                       required
                       {...form.register("username")}
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-
                     <Input
                       id="email"
                       placeholder="m@exemplo.com"
                       required
                       type="email"
-                      className="bg-[#252728] text-[#F6F7EB]"
+                      className="bg-[#FFF] text-[#131404]"
                       {...form.register("email")}
                     />
                   </div>
@@ -120,7 +119,7 @@ export default function SignupForm() {
                       placeholder="Senha"
                       required
                       type="password"
-                      className="bg-[#252728] text-[#F6F7EB]"
+                      className="bg-[#FFF] text-[#131404]"
                       {...form.register("password")}
                     />
                   </div>
@@ -133,7 +132,7 @@ export default function SignupForm() {
                     Cadastrar
                   </Button>
                 </CardFooter>
-                <CardFooter className="text-center text-sm">
+                <CardFooter className="text-center text-sm 2xl:text-[#F6F7EB] xl:text-[#F6F7EB] md:text-[#F6F7EB]">
                   Já possui uma conta?{" "}
                   <Link
                     href="/login"
