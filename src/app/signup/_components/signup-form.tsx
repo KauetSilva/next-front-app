@@ -33,7 +33,7 @@ export default function SignupForm() {
   const handleSubmit = async (data: any) => {
     signupSchema.parse(data);
     try {
-      const response = await fetch("http://localhost:8000/user", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
