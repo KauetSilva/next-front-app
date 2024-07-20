@@ -1,8 +1,8 @@
 import Dashboard from "./_components/dashboard";
 
-export default function SignupPage() {
+export default function DashboardPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12">
+    <main className="flex min-h-screen flex-col items-center justify-between">
       <Dashboard />
     </main>
   );
