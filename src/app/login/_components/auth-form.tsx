@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -26,7 +26,7 @@ export function AuthForm() {
   const handleSubmit = async (data: any) => {
     loginSchema.parse(data);
     try {
-      const response = await fetch('http://localhost:8000/user/login', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,61 +73,60 @@ export function AuthForm() {
         <div className="w-full flex items-center justify-center bg-[#2C2A4A] text-[#F6F7EB] 2xl:rounded-l-2xl xl:rounded-l-2xl">
           <div className="w-full max-w-sm">
             <div>
-              <form onSubmit={form.handleSubmit(handleSubmit)}>
-                <CardHeader className="text-center space-y-2">
-                  <Image
-                    src="/logo-branca.png"
-                    alt="Image"
-                    width={200}
-                    height={200}
+            <form onSubmit={form.handleSubmit(handleSubmit)}>
+              <CardHeader className="text-center space-y-2">
+                <Image
+                  src="/logo-branca.png"
+                  alt="Image"
+                  width={200}
+                  height={200}
                     className="max-w-full max-h-full ml-[4.8rem] mb-10"
-                  />
-                  <CardTitle className="text-2xl font-bold">Login</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                />
+                <CardTitle className="text-2xl font-bold">Login</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
 
-                    <Input
-                      id="email"
-                      placeholder="m@exemplo.com"
-                      required
-                      type="email"
-                      className="bg-[#252728]"
-                      {...form.register("email")}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password">Senha</Label>
-                    <Input
-                      id="password"
-                      placeholder="Senha"
-                      required
-                      type="password"
-                      className="bg-[#252728]"
-                      {...form.register("password")}
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter className="flex flex-col gap-2">
-                  <Button
-                    type="submit"
-                    className="mt-auto w-full bg-gradient-to-r from-gray-400 to-[#1f1d42] text-white border-none rounded-md py-2 px-4 transition duration-300 ease-in-out hover:bg-blue-800"
-                  >
-                    Login
-                  </Button>
-                </CardFooter>
-                <CardFooter className="text-center text-sm">
-                  Não tem uma conta?{" "}
-                  <Link
-                    href="/signup"
-                    className="ml-2 text-blue-400 hover:opacity-75"
-                  >
-                    Sign up
-                  </Link>
-                </CardFooter>
-                {/* <Bottom /> */}
-              </form>
+                  <Input
+                    id="email"
+                    placeholder="m@exemplo.com"
+                    required
+                    type="email"
+                    className="bg-[#252728]"
+                    {...form.register("email")}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Senha</Label>
+                  <Input
+                    id="password"
+                    placeholder="Senha"
+                    required
+                    type="password"
+                    className="bg-[#252728]"
+                    {...form.register("password")}
+                  />
+                </div>
+              </CardContent>
+              <CardFooter className="flex flex-col gap-2">
+                <Button
+                  type="submit"
+                  className="mt-auto w-full bg-gradient-to-r from-gray-400 to-[#1f1d42] text-white border-none rounded-md py-2 px-4 transition duration-300 ease-in-out hover:bg-blue-800"
+                >
+                  Login
+                </Button>
+              </CardFooter>
+              <CardFooter className="text-center text-sm">
+                Não tem uma conta?{" "}
+                <Link
+                  href="/signup"
+                  className="ml-2 text-blue-400 hover:opacity-75"
+                >
+                  Sign up
+                </Link>
+              </CardFooter>
+            </form>
             </div>
           </div>
         </div>
